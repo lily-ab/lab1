@@ -83,17 +83,19 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
         return size;
     }
     @Override
-    public void add(T t){
+    public boolean add(T t){
         try{
             T[] temp=array;
             array=(T[])new Object[temp.length+1];
             System.arraycopy(temp,0,array,0,temp.length);
             array[array.length-1]=t;
             size++;
+            return true;
         }
         catch (ClassCastException e){
             e.getMessage();
         }
+        return false;
     }
 
     @Override
@@ -200,7 +202,7 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
      *  @throws ClassCastException
      */
     @Override
-    public void remove(int index){
+    public boolean remove(int index){
         checkIndex(index);
         try{
             T[] temp=array;
@@ -208,10 +210,17 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
             System.arraycopy(temp,0,array, 0, index);
             System.arraycopy(temp,index+1,array, index,temp.length-index-1);
             size--;
+            return  true;
         }
         catch (ClassCastException e){
             e.getMessage();
         }
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object obj) {
+        return remove(indexOf(obj));
     }
 
     /**
@@ -233,6 +242,19 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
     // @Override
     public Iterator iterator() {
         return new ListArrayIterator<T>(array);
+    }
+
+    /**
+     * Returns array of the specified object
+     */
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return null;
     }
 
     @Override
@@ -259,9 +281,37 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
         }
     }
 
-
+    /**
+     * Overrided but untapped methods of List
+     */
     @Override
     public int compareTo(T o) {
         return 0;
+    }
+
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
     }
 }

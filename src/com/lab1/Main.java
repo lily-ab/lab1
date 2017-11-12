@@ -31,12 +31,13 @@ public class Main {
 
 
         MyArrayList<Person> persons=new MyArrayList<Person>();
+
         persons.add(new Person("John",25));
         persons.add(new Person("Mary",16));
         persons.add(new Person("Anna",25));
         persons.add(new Person("Zayn",35));
-        for(int i=0;i<persons.size();i++){
-            System.out.println(persons.get(i).getName() + " " + persons.get(i).getAge());
+        for (Person p: persons ) {
+            System.out.println(p.getName() + " " + p.getAge());
         }
     }
 }
