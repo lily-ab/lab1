@@ -1,7 +1,7 @@
 /**
  * The "MyArrayList" class.
  * Resizable-array implementation of the <tt>MyList</tt> interface.
- * The implimentation of the data structure, which has type of a dynamic array.
+ * The implementation of the data structure, which has type of a dynamic array.
  * Implements all optional MyList operations, and permits all elements, including
  * <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface,
  * this class provides methods to manipulate the size of the array that is
@@ -19,12 +19,13 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
      * The capacity of the MyArrayList is the length of this array buffer.
      */
     private T[] array;
+
     /**
      * The size of the MyArrayList (the number of elements it contains).
      */
     private int size=0;
 
-    public MyArrayList() {
+     MyArrayList() {
         try{
             array=(T[])new Object[0];
         }
@@ -39,7 +40,7 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
      * @throws IllegalArgumentException if the specified initial capacity is negative
      * @throws ClassCastException in case of incorrect types conversion
      */
-    public MyArrayList(int initialSize) {
+    MyArrayList(int initialSize) {
         if (initialSize > 0) {
             try{
                 this.array = (T[])new Object[initialSize];
@@ -54,25 +55,6 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
         }
     }
 
-    /**
-     * Constructs an array containing the elements of the specified
-     * collection, in the order they are returned by the collection's
-     * iterator.
-     *
-     * @param t the collection whose elements are to be placed into this list
-     * @throws NullPointerException if the specified collection is null
-     * @throws ClassCastException in case of incorrect types conversion
-     */
-    public MyArrayList(Collection<? extends T> t) {
-        try{array = (T[])t.toArray();}
-        catch (ClassCastException ex){ex.getMessage();}
-        if ((size=t.size()) != 0) {
-            if (array.getClass() != Object[].class)
-                array = (T[])Arrays.copyOf(array, size(), Object[].class);
-        } else {
-            this.array = null;
-        }
-    }
 
     /**
      * Returns the number of elements in this array.
@@ -83,6 +65,11 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
         return size;
     }
     @Override
+
+    /**
+     * Adds the specified T element to the end of the array
+     * @return true in case of successful adding
+     */
     public boolean add(T t){
         try{
             T[] temp=array;
@@ -98,6 +85,13 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
         return false;
     }
 
+    /**
+     * Adds the specified T element to the specified position
+     * @param index specifies the position of the inserting element
+     * @param t specifies the element
+     * @throws  IndexOutOfBoundsException in case of the incorrect index
+     * @throws ClassCastException if arrays are incompatible
+     */
     @Override
     public void add(int index, T t){
         checkIndex(index);
@@ -126,7 +120,7 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
      * Returns the element at the specified position in this list.
      * @param  index index of the element to return
      * @return the element at the specified position in this list
-     * @throws IndexOutOfBoundsException
+     * @throws IndexOutOfBoundsException if index is incorrect
      */
     @Override
     public T get(int index){
@@ -140,8 +134,7 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
      *
      * @param index index of the element to replace
      * @param element element to be stored at the specified position
-     * @return the element previously at the specified position
-     * @throws IndexOutOfBoundsException
+     * @throws IndexOutOfBoundsException if index is incorrect
      */
     @Override
     public void set(int index, T element) {
@@ -218,10 +211,6 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
         return false;
     }
 
-    @Override
-    public boolean remove(Object obj) {
-        return remove(indexOf(obj));
-    }
 
     /**
     * Returns a portion of this list between the specified
@@ -244,18 +233,6 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
         return new ListArrayIterator<T>(array);
     }
 
-    /**
-     * Returns array of the specified object
-     */
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @Override
-    public <T> T[] toArray(T[] a) {
-        return null;
-    }
 
     @Override
     public void sort(Comparator<? super T> c) {
@@ -282,36 +259,11 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
     }
 
     /**
-     * Overrided but untapped methods of List
+     *
      */
     @Override
     public int compareTo(T o) {
         return 0;
     }
 
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends T> c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public void clear() {
-
-    }
 }

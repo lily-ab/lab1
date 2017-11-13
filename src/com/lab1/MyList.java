@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 
-public interface MyList<T> extends Collection<T>{
+public interface MyList<T>{
     boolean add(T t);
     void add(int index, T t);
     boolean contains(Object obj);
