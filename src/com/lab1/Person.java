@@ -13,8 +13,9 @@ public class Person implements Comparable<Person>{
     }
     public String getName(){return name;}
     public int getAge(){return  age;}
-    public int compareTo(Person p){
 
+    @Override
+    public int compareTo(Person p){
         return name.compareTo(p.getName());
     }
 }
