@@ -164,8 +164,7 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
      * Returns the index of the last occurrence of the specified element
      * in this list, or -1 if this list does not contain the element
      */
-    @Override
-    public int lastIndexOf(Object obj){
+    @Override    public int lastIndexOf(Object obj){
         if (obj == null) {
             for (int i = size-1; i >= 0; i--)
                 if (array[i]==null)
@@ -219,7 +218,7 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
      * @throws IllegalArgumentException
      */
     @Override
-    public MyArrayList<T> subList(int first, int last){
+    public MyList<T> subList(int first, int last){
         checkIndex(first);
         checkIndex(last);
         if(first>last) throw new IllegalArgumentException("Negative range");
