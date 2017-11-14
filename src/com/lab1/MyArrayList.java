@@ -11,9 +11,10 @@
  */
 package com.lab1;
 
+
 import java.util.*;
 
-public class MyArrayList<T> implements MyList<T>, Comparable<T>{
+public class MyArrayList<T> implements MyList<T>{
     /**
      * The array buffer into which the elements of the ArrayList are stored.
      * The capacity of the MyArrayList is the length of this array buffer.
@@ -24,6 +25,8 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
      * The size of the MyArrayList (the number of elements it contains).
      */
     private int size=0;
+
+    Comparator<T> comp;
 
      MyArrayList() {
         try{
@@ -77,6 +80,7 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
             System.arraycopy(temp,0,array,0,temp.length);
             array[array.length-1]=t;
             size++;
+            if(size>1) sort(comp);
             return true;
         }
         catch (ClassCastException e){
@@ -100,6 +104,7 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
             System.arraycopy(array, index, array, index + 1,size - index);
             array[index]=t;
             size++;
+            if(size>1) sort(comp);
         }
         catch (ClassCastException e){
             e.printStackTrace();
@@ -237,13 +242,12 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
     public void sort(Comparator<? super T> c) {
         final int expectedModCount = size;
         try {
-            Arrays.sort((T[]) array, 0, size, c);
+            Arrays.sort(array, 0, size, c);
         }
         catch (ClassCastException ex){ex.getMessage();}
         if (size != expectedModCount) {
             throw new ConcurrentModificationException();
         }
-        size++;
     }
 
     /**
@@ -260,9 +264,6 @@ public class MyArrayList<T> implements MyList<T>, Comparable<T>{
     /**
      *
      */
-    @Override
-    public int compareTo(T o) {
-        return 0;
-    }
+
 
 }
