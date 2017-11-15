@@ -146,25 +146,25 @@ public class Main {
                     break;
                 case "11":
                     //Search by index
-                    Date startMyArrayList=new Date();
-                    persons.get(1);
-                    Date finishMyArrayList=new Date();
-                    long res1=finishMyArrayList.getTime()-startMyArrayList.getTime();
+                    long start=System.currentTimeMillis();
+                    Person pers=persons.get(1);
+                    long finish=System.currentTimeMillis();
+                    long res1=finish-start;
                     //ArrayList
-                    Date startArrayList=new Date();
+                    long startArr=System.currentTimeMillis();
                     persons1.get(1);
-                    Date finishArrayList=new Date();
-                    long res2=finishArrayList.getTime()-startArrayList.getTime();
+                    long finishArr=System.currentTimeMillis();
+                    long res2=finishArr-startArr;
                     //Add by index
-                    Date startMyArrayList1=new Date();
+                    long startAdd=System.currentTimeMillis();
                     persons.add(2,new Person("Jim",18));
-                    Date finishMyArrayList1=new Date();
-                    long res3=finishMyArrayList1.getTime()-startMyArrayList1.getTime();
+                    long finishAdd=System.currentTimeMillis();
+                    long res3=finishAdd-startAdd;
                     //ArrayList
-                    Date startArrayList1=new Date();
+                    long startAddArr=System.currentTimeMillis();
                     persons1.add(2,new Person("Jim",18));
-                    Date finishArrayList1=new Date();
-                    long res4=finishArrayList1.getTime()-startArrayList1.getTime();
+                    long finishAddArr=System.currentTimeMillis();
+                    long res4=finishAddArr-startAddArr;
                     System.out.println("Search by index:");
                     System.out.println("MyArrayList = " + res1);
                     System.out.println("ArrayList = " + res2);
