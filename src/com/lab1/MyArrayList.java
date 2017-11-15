@@ -27,7 +27,10 @@ public class MyArrayList<T> implements MyList<T> {
      */
     private int size = 0;
 
-    Comparator<T> comp;
+    /**
+     * Declaration of comparator of specified data type
+     */
+    private Comparator<T> comp;
 
     MyArrayList() {
         try {
@@ -95,9 +98,9 @@ public class MyArrayList<T> implements MyList<T> {
      * Adds the specified T element to the specified position
      *
      * @param index specifies the position of the inserting element
-     * @param t     specifies the element
+     * @param t specifies the element
      * @throws IndexOutOfBoundsException in case of the incorrect index
-     * @throws ClassCastException        if arrays are incompatible
+     * @throws ClassCastException if arrays are incompatible
      */
     @Override
     public void add(int index, T t) {
@@ -107,7 +110,6 @@ public class MyArrayList<T> implements MyList<T> {
             System.arraycopy(array, index, array, index + 1, size - index);
             array[index] = t;
             size++;
-            if (size > 1) sort(comp);
         } catch (ClassCastException e) {
             e.printStackTrace();
         }
@@ -264,7 +266,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     /**
-     * @param index
+     * @param index is a number of element which is tested on compliance of massive limits
      * @throws IndexOutOfBoundsException in case of negative index or
      *                                   exceeding the upper limit of the array
      */
