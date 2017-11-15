@@ -98,9 +98,9 @@ public class MyArrayList<T> implements MyList<T> {
      * Adds the specified T element to the specified position
      *
      * @param index specifies the position of the inserting element
-     * @param t specifies the element
+     * @param t     specifies the element
      * @throws IndexOutOfBoundsException in case of the incorrect index
-     * @throws ClassCastException if arrays are incompatible
+     * @throws ClassCastException        if arrays are incompatible
      */
     @Override
     public void add(int index, T t) {

@@ -121,10 +121,9 @@ public class Main {
                     }
                     break;
                 case "9":
-                    if(persons.isEmpty()){
+                    if (persons.isEmpty()) {
                         System.out.println("The list is empty");
-                    }
-                    else{
+                    } else {
                         System.out.println("The list is not empty");
                     }
                     break;
@@ -134,10 +133,9 @@ public class Main {
                     System.out.println("Age: ");
                     age = read.next();
                     if (isDigit(age)) {
-                        if(persons.contains(new Person(name, Integer.parseInt(age)))){
+                        if (persons.contains(new Person(name, Integer.parseInt(age)))) {
                             System.out.println("Contains");
-                        }
-                        else{
+                        } else {
                             System.out.println("Doesn't contain");
                         }
                     } else {
@@ -146,23 +144,23 @@ public class Main {
                     break;
                 case "11":
                     //Search by index
-                    long start=System.currentTimeMillis();
-                    for(int i=0;i<1000;i++){
+                    long start = System.currentTimeMillis();
+                    for (int i = 0; i < 1000; i++) {
                         persons.get(1);
                     }
-                    long res1=System.currentTimeMillis()-start;
+                    long res1 = System.currentTimeMillis() - start;
                     //ArrayList
-                    long startArr=System.currentTimeMillis();
+                    long startArr = System.currentTimeMillis();
                     persons1.get(1);
-                    long res2=System.currentTimeMillis()-startArr;
+                    long res2 = System.currentTimeMillis() - startArr;
                     //Add by index
-                    long startAdd=System.currentTimeMillis();
-                    persons.add(2,new Person("Jim",18));
-                    long res3=System.currentTimeMillis()-startAdd;
+                    long startAdd = System.currentTimeMillis();
+                    persons.add(2, new Person("Jim", 18));
+                    long res3 = System.currentTimeMillis() - startAdd;
                     //ArrayList
-                    long startAddArr=System.currentTimeMillis();
-                    persons1.add(2,new Person("Jim",18));
-                    long res4=System.currentTimeMillis()-startAddArr;
+                    long startAddArr = System.currentTimeMillis();
+                    persons1.add(2, new Person("Jim", 18));
+                    long res4 = System.currentTimeMillis() - startAddArr;
                     System.out.println("Search by index:");
                     System.out.println("MyArrayList = " + res1);
                     System.out.println("ArrayList = " + res2);
@@ -177,7 +175,6 @@ public class Main {
                     System.out.println("Wrong choice");
             }
         }
-
     }
 
     public static boolean isDigit(String string) {
