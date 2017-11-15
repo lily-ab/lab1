@@ -147,24 +147,22 @@ public class Main {
                 case "11":
                     //Search by index
                     long start=System.currentTimeMillis();
-                    Person pers=persons.get(1);
-                    long finish=System.currentTimeMillis();
-                    long res1=finish-start;
+                    for(int i=0;i<1000;i++){
+                        persons.get(1);
+                    }
+                    long res1=System.currentTimeMillis()-start;
                     //ArrayList
                     long startArr=System.currentTimeMillis();
                     persons1.get(1);
-                    long finishArr=System.currentTimeMillis();
-                    long res2=finishArr-startArr;
+                    long res2=System.currentTimeMillis()-startArr;
                     //Add by index
                     long startAdd=System.currentTimeMillis();
                     persons.add(2,new Person("Jim",18));
-                    long finishAdd=System.currentTimeMillis();
-                    long res3=finishAdd-startAdd;
+                    long res3=System.currentTimeMillis()-startAdd;
                     //ArrayList
                     long startAddArr=System.currentTimeMillis();
                     persons1.add(2,new Person("Jim",18));
-                    long finishAddArr=System.currentTimeMillis();
-                    long res4=finishAddArr-startAddArr;
+                    long res4=System.currentTimeMillis()-startAddArr;
                     System.out.println("Search by index:");
                     System.out.println("MyArrayList = " + res1);
                     System.out.println("ArrayList = " + res2);

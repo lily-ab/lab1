@@ -235,7 +235,7 @@ public class MyArrayList<T> implements MyList<T> {
         checkIndex(first);
         checkIndex(last);
         if (first > last) throw new IllegalArgumentException("Negative range");
-        MyArrayList<T> newArray = new MyArrayList<T>(last - first);
+        MyList<T> newArray = new MyArrayList<T>(last - first);
         System.arraycopy(array, first, newArray, 0, last - first);
         return newArray;
     }
