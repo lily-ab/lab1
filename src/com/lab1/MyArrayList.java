@@ -75,7 +75,7 @@ public class MyArrayList<T> implements MyList<T> {
 
     /**
      * Adds the specified T element to the end of the array
-     *
+     * Sorts elements after adding;
      * @return true in case of successful adding
      */
     @Override
@@ -131,7 +131,7 @@ public class MyArrayList<T> implements MyList<T> {
      *
      * @param index index of the element to return
      * @return the element at the specified position in this list
-     * @throws IndexOutOfBoundsException if index is incorrect
+     * @throws IndexOutOfBoundsException if index is uncorrect
      */
     @Override
     public T get(int index) {
@@ -204,8 +204,8 @@ public class MyArrayList<T> implements MyList<T> {
      *
      * @param index the index of the element to be removed
      * @return the element that was removed from the list
-     * @throws IndexOutOfBoundsException
-     * @throws ClassCastException
+     * @throws IndexOutOfBoundsException in case of uncorrect index
+     * @throws ClassCastException  if types are incompatible
      */
     @Override
     public boolean remove(int index) {
@@ -249,7 +249,7 @@ public class MyArrayList<T> implements MyList<T> {
      * Sotrs the massiv with the specified comparator
      *
      * @param c specifies the comparator that is made for type of elements of the massive
-     * @throws ClassCastException              in case of incompatible types
+     * @throws ClassCastException  in case of incompatible types
      * @throws ConcurrentModificationException in case of changing the massive after sorting
      */
     @Override
@@ -268,7 +268,7 @@ public class MyArrayList<T> implements MyList<T> {
     /**
      * @param index is a number of element which is tested on compliance of massive limits
      * @throws IndexOutOfBoundsException in case of negative index or
-     *                                   exceeding the upper limit of the array
+     *  exceeding the upper limit of the array
      */
     public void checkIndex(int index) {
         if (index < 0 || index >= size()) {
